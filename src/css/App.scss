@@ -1,0 +1,640 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito');
+
+$primary-color: #FFC700;
+
+@mixin phone {
+  @media (max-width: 950px) {
+      @content;
+  }
+}
+
+@keyframes slideUp{
+  from{
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+@keyframes slideLeft{
+  from{
+    opacity: 0;
+    transform: translateX(150px);
+  }
+}
+@keyframes expand{
+  from{
+    opacity: 0;
+    transform:scale(0);
+  }
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito';
+}
+
+.App{
+  width: 100vw;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.FormPage{
+
+  .eachForm{
+    width: 100%;
+    padding: 0 50px;
+  }
+
+  $LogoWidth: 300px;
+
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+
+  @include phone{
+    flex-direction: column;
+  }
+
+  .Logo{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: $LogoWidth;
+    height: $LogoWidth;
+
+    @include phone{
+      display: none;
+    }
+
+    img{
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  .left, .right{
+    flex: 1;
+  }
+  .left{
+    background-color: $primary-color;
+    padding-right: $LogoWidth/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include phone{
+      padding-right: 0;
+    }
+
+    .type{
+      max-width: 500px;
+      margin: 50px;
+
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .right{
+    padding-left: $LogoWidth/2;
+    @include phone{
+      padding-left: 0;
+    }
+
+    .form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      @include phone{
+        position: unset;
+        
+      }
+
+      nav{
+        position: fixed;
+        right: 00px;
+          top: 00px;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px 40px;
+        
+        
+
+        .link{
+          position: absolute;
+          right: 00px;
+          top: 00px;
+          padding: 20px 40px;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-end;
+          a{
+            color: black;
+            font-weight: bold;
+          }
+
+          &.expand{
+            height: 200px;
+            width: 200px;
+            clip-path: circle(0% at 100% -50%);
+            background-color: $primary-color;
+            transition: .2s;
+
+            a{
+              color: white;
+            }
+
+            
+          }
+        }
+        &:hover .expand{
+          clip-path: circle(100% at 100% -50%);
+        }
+
+        @include phone{
+          .link a{
+            color: white !important;
+          }
+          .expand{
+            background-color: white !important;
+            a{
+              color: $primary-color !important;
+            }
+          }
+        }
+      }
+
+      
+      h1{
+        color: $primary-color;
+        font-size: 80px;
+        font-weight: bold;
+        text-align: center;
+        @include phone{
+          font-size: 40px;
+          margin: 20px 0;
+        }
+      }
+      form{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        .formInput{
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 30px;
+
+          label{
+            opacity: .5;
+            color: black;
+            @include phone{
+              font-size: 12px;
+            }
+          }
+          input{
+            // height: 40px;
+            border-radius: 20px 20px 0 0;
+            border: 0;
+            background-color: #F5F5F5;
+            padding: 10px 20px;
+            font-size: 18px;
+            @include phone{
+              font-size: 12px;
+            }
+
+            &:focus{
+              outline: none;
+              +.underline{
+                width: 100%;
+              }
+              +label p{
+                color: $primary-color;
+              }
+            }
+          }
+          .underline{
+            width: 00%;
+            height: 2px;
+            background-color: $primary-color;
+            transform: translateY(-100%);
+            transition: .2s;
+          }
+        }
+        button{
+          padding: 10px 20px;
+          border: 0;
+          background-color: $primary-color;
+          color: white;
+          font-weight: bolder;
+          font-size: 25px;
+          border-radius: 999px;
+          @include phone{
+            font-size: 18px;
+          }
+        }
+      }
+      
+    }
+  }
+}
+
+.Nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: $primary-color;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  z-index: 50;
+  @include phone{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  a{
+    color: unset;
+    text-decoration: unset;
+  }
+
+  nav{
+    display: flex;
+    align-items: center;
+
+    p,button{
+      margin-left: 50px;
+    }
+    p {@include phone{
+      display: none;
+    }}
+
+    button{
+      background-color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+.ChatPage{
+  display: flex;
+  height: 100vh;
+  flex: 1;
+
+  .left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .addChat{
+      margin: 20px;
+      background-color: $primary-color;
+      border: none;
+      padding: 20px;
+      cursor: pointer;
+      @include phone{
+        
+        margin-top: 100px;
+      }
+    }
+
+    .newChat{
+      height: 50px;
+      // background-color: blue;
+      padding: 20px;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.918);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      
+
+      .closeArea{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+      }
+
+      .modal{
+        height: 700px;
+        background-color: rgb(187, 187, 187);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        @include phone{
+          height: 100vh;
+        }
+
+        .buttons{
+          // background-color: greenyellow;
+          display: flex;
+          // flex-direction: column;
+          align-items: stretch;
+          border: none;
+          
+          @include phone{
+            position: fixed;
+            bottom: 0;
+            width: 100vw;
+            
+          }
+
+          button{
+            padding: 15px;
+            flex: 1;
+            border: none;
+            cursor: pointer;
+
+            &.createChat{
+              background-color: greenyellow;
+              &.inactive{
+                opacity: 20%;
+                pointer-events: none;
+              }
+            }
+            &.back{
+              background-color: rgb(255, 255, 255);
+            }
+          }
+        }
+
+        form{
+          display: flex;
+          width: 500px;
+          align-self: center;
+          @include phone{
+            width: 100vw;
+          }
+  
+          input{
+            flex: 1;
+            border: none;
+            background-color: #ffffff;
+            padding: 10px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            padding-left: 20px;
+          }
+  
+          button{
+            height: 50px;
+            width: 50px;
+            background-color: $primary-color;
+            border: none;
+            
+          }
+        }
+
+        .results{
+          flex: 1;
+          width: 100%;
+          overflow: scroll;
+
+          .searchList{
+            .searchItem{
+              padding-left: 20px;
+              margin: 10px;
+              background-color: rgb(255, 255, 255);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              p.name{
+                font-size: 25px;
+              }
+              p.username{
+                font-size: 18px;
+                color: gray;
+              }
+              button{
+                height: 70px;
+                width: 70px;
+                border: none;
+
+                &.add{
+                  background-color: $primary-color;
+                }
+                &.remove{
+                  background-color: red;
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+      
+    }
+  }
+
+  .ChatList{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 20px;
+    overflow: scroll;
+
+
+    
+    
+
+    .ChatBanner{
+      // background-color: rgb(236, 236, 236);
+      // margin: 0 20px 20px 20px;
+      padding: 20px;
+      cursor: pointer;
+      border-bottom: 1px solid #cccccc;
+      margin: 0 20px;
+      transition: .2s;
+      &:hover{
+        background-color: rgb(236, 236, 236);
+      }
+      &.active{
+        background-color: $primary-color;
+        margin-right: 0;
+      }
+    }
+  }
+  .ChatView{
+    flex: 3;
+    background-color: $primary-color;
+    // background-color: rgb(238, 238, 238);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    animation: slideLeft .5s;
+    @include phone{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      z-index: 5;
+      animation: slideUp .5s;
+    }
+
+    .chatBar{
+      // height: 100px;
+      width: 100%;
+      // background-color: lighten($color: $primary-color, $amount: 10);
+      background-color: white;
+      padding: 5px 10px;
+      box-shadow: #0000005c 0 0 8px 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+
+      img{
+        padding: 10px;
+        width: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+          background-color: #f5f5f5;
+        }
+      }
+      p{
+        margin-left: 20px;
+      }
+    }
+
+    .messages{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 150px;
+      position: relative;
+      height: 100vh;
+      overflow: scroll;
+      @include phone{
+        padding: 20px;
+        padding-bottom: 150px;
+      }
+
+      .Message{
+        $borderRad:10px;
+        // padding-bottom: 10px;
+        margin: 2px;
+        min-width: 100px;
+        max-width: 70%;
+        font-weight: 400;
+        word-break: break-word;
+        animation: expand .5s;
+
+        .from{
+          padding: 5px 10px;
+          font-size: 10px;
+          // color: rgb(70, 70, 70);
+          color: rgb(39, 39, 39);
+          letter-spacing: 2px;
+          background-color: rgba(0, 0, 0, 0.02);
+          border-radius: $borderRad $borderRad 0 0;
+        }
+        .content{
+          padding: 10px;
+        }
+        
+        
+        &.sent{
+          background-color: white;
+          align-self: flex-end;
+          border-radius: $borderRad $borderRad 0 $borderRad;
+          .from{
+            text-align: right;
+          }
+        }
+        &.recieved{
+          background-color: lighten($color: $primary-color, $amount: 47);
+          align-self: start;
+          border-radius: $borderRad $borderRad $borderRad 0;
+        }
+      }
+    }
+
+    .SendMessage{
+      position: fixed;
+      bottom: 0;
+      width: 75vw;
+      display: flex;
+      padding: 20px;
+      // margin-bottom: 60px;
+      @include phone{
+        width: 100%;
+      }
+
+      form{
+        // padding: 20px;
+        display: flex;
+        width: 100%;
+        height: 50px;
+        box-shadow: #0000005c 0 0 8px 0;
+        border-radius: 25px;
+        overflow: hidden;
+        
+        
+        .input{
+          flex: 1;
+          height: 100%;
+          input, textarea, span{
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 20px;
+            &:focus{
+              outline: none;
+            }
+          }
+        }
+        button{
+          // width: 100px;
+          background-color: white;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          cursor: pointer;
+          padding: 6px;
+          
+          &:focus{
+            outline: none;
+          }
+          img{
+            max-height: 100%;
+            max-width: 100%;
+            &:hover{
+              opacity: .7;
+            }
+          }
+        }
+
+      }
+      
+    }
+  }
+
+}

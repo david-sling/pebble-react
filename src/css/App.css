@@ -1,0 +1,857 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito");
+@-webkit-keyframes slideUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+}
+
+@-webkit-keyframes slideLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(150px);
+            transform: translateX(150px);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(150px);
+            transform: translateX(150px);
+  }
+}
+
+@-webkit-keyframes expand {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Nunito';
+}
+
+.App {
+  width: 100vw;
+  overflow: hidden;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.FormPage {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  position: relative;
+}
+
+.FormPage .eachForm {
+  width: 100%;
+  padding: 0 50px;
+}
+
+@media (max-width: 950px) {
+  .FormPage {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.FormPage .Logo {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+@media (max-width: 950px) {
+  .FormPage .Logo {
+    display: none;
+  }
+}
+
+.FormPage .Logo img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.FormPage .left, .FormPage .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.FormPage .left {
+  background-color: #FFC700;
+  padding-right: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 950px) {
+  .FormPage .left {
+    padding-right: 0;
+  }
+}
+
+.FormPage .left .type {
+  max-width: 500px;
+  margin: 50px;
+}
+
+.FormPage .left .type img {
+  width: 100%;
+}
+
+.FormPage .right {
+  padding-left: 150px;
+}
+
+@media (max-width: 950px) {
+  .FormPage .right {
+    padding-left: 0;
+  }
+}
+
+.FormPage .right .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 950px) {
+  .FormPage .right .form {
+    position: unset;
+  }
+}
+
+.FormPage .right .form nav {
+  position: fixed;
+  right: 00px;
+  top: 00px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 20px 40px;
+}
+
+.FormPage .right .form nav .link {
+  position: absolute;
+  right: 00px;
+  top: 00px;
+  padding: 20px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.FormPage .right .form nav .link a {
+  color: black;
+  font-weight: bold;
+}
+
+.FormPage .right .form nav .link.expand {
+  height: 200px;
+  width: 200px;
+  -webkit-clip-path: circle(0% at 100% -50%);
+          clip-path: circle(0% at 100% -50%);
+  background-color: #FFC700;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.FormPage .right .form nav .link.expand a {
+  color: white;
+}
+
+.FormPage .right .form nav:hover .expand {
+  -webkit-clip-path: circle(100% at 100% -50%);
+          clip-path: circle(100% at 100% -50%);
+}
+
+@media (max-width: 950px) {
+  .FormPage .right .form nav .link a {
+    color: white !important;
+  }
+  .FormPage .right .form nav .expand {
+    background-color: white !important;
+  }
+  .FormPage .right .form nav .expand a {
+    color: #FFC700 !important;
+  }
+}
+
+.FormPage .right .form h1 {
+  color: #FFC700;
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 950px) {
+  .FormPage .right .form h1 {
+    font-size: 40px;
+    margin: 20px 0;
+  }
+}
+
+.FormPage .right .form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.FormPage .right .form form .formInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.FormPage .right .form form .formInput label {
+  opacity: .5;
+  color: black;
+}
+
+@media (max-width: 950px) {
+  .FormPage .right .form form .formInput label {
+    font-size: 12px;
+  }
+}
+
+.FormPage .right .form form .formInput input {
+  border-radius: 20px 20px 0 0;
+  border: 0;
+  background-color: #F5F5F5;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+@media (max-width: 950px) {
+  .FormPage .right .form form .formInput input {
+    font-size: 12px;
+  }
+}
+
+.FormPage .right .form form .formInput input:focus {
+  outline: none;
+}
+
+.FormPage .right .form form .formInput input:focus + .underline {
+  width: 100%;
+}
+
+.FormPage .right .form form .formInput input:focus + label p {
+  color: #FFC700;
+}
+
+.FormPage .right .form form .formInput .underline {
+  width: 00%;
+  height: 2px;
+  background-color: #FFC700;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.FormPage .right .form form button {
+  padding: 10px 20px;
+  border: 0;
+  background-color: #FFC700;
+  color: white;
+  font-weight: bolder;
+  font-size: 25px;
+  border-radius: 999px;
+}
+
+@media (max-width: 950px) {
+  .FormPage .right .form form button {
+    font-size: 18px;
+  }
+}
+
+.Nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #FFC700;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  z-index: 50;
+}
+
+@media (max-width: 950px) {
+  .Nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.Nav a {
+  color: unset;
+  text-decoration: unset;
+}
+
+.Nav nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Nav nav p, .Nav nav button {
+  margin-left: 50px;
+}
+
+@media (max-width: 950px) {
+  .Nav nav p {
+    display: none;
+  }
+}
+
+.Nav nav button {
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.ChatPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.ChatPage .left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ChatPage .left .addChat {
+  margin: 20px;
+  background-color: #FFC700;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 950px) {
+  .ChatPage .left .addChat {
+    margin-top: 100px;
+  }
+}
+
+.ChatPage .left .newChat {
+  height: 50px;
+  padding: 20px;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.918);
+  z-index: 50;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ChatPage .left .newChat .closeArea {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.ChatPage .left .newChat .modal {
+  height: 700px;
+  background-color: #bbbbbb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 950px) {
+  .ChatPage .left .newChat .modal {
+    height: 100vh;
+  }
+}
+
+.ChatPage .left .newChat .modal .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  border: none;
+}
+
+@media (max-width: 950px) {
+  .ChatPage .left .newChat .modal .buttons {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+  }
+}
+
+.ChatPage .left .newChat .modal .buttons button {
+  padding: 15px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.ChatPage .left .newChat .modal .buttons button.createChat {
+  background-color: greenyellow;
+}
+
+.ChatPage .left .newChat .modal .buttons button.createChat.inactive {
+  opacity: 20%;
+  pointer-events: none;
+}
+
+.ChatPage .left .newChat .modal .buttons button.back {
+  background-color: white;
+}
+
+.ChatPage .left .newChat .modal form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 500px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+@media (max-width: 950px) {
+  .ChatPage .left .newChat .modal form {
+    width: 100vw;
+  }
+}
+
+.ChatPage .left .newChat .modal form input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  background-color: #ffffff;
+  padding: 10px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  padding-left: 20px;
+}
+
+.ChatPage .left .newChat .modal form button {
+  height: 50px;
+  width: 50px;
+  background-color: #FFC700;
+  border: none;
+}
+
+.ChatPage .left .newChat .modal .results {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  overflow: scroll;
+}
+
+.ChatPage .left .newChat .modal .results .searchList .searchItem {
+  padding-left: 20px;
+  margin: 10px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ChatPage .left .newChat .modal .results .searchList .searchItem p.name {
+  font-size: 25px;
+}
+
+.ChatPage .left .newChat .modal .results .searchList .searchItem p.username {
+  font-size: 18px;
+  color: gray;
+}
+
+.ChatPage .left .newChat .modal .results .searchList .searchItem button {
+  height: 70px;
+  width: 70px;
+  border: none;
+}
+
+.ChatPage .left .newChat .modal .results .searchList .searchItem button.add {
+  background-color: #FFC700;
+}
+
+.ChatPage .left .newChat .modal .results .searchList .searchItem button.remove {
+  background-color: red;
+}
+
+.ChatPage .ChatList {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding-top: 20px;
+  overflow: scroll;
+}
+
+.ChatPage .ChatList .ChatBanner {
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #cccccc;
+  margin: 0 20px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.ChatPage .ChatList .ChatBanner:hover {
+  background-color: #ececec;
+}
+
+.ChatPage .ChatList .ChatBanner.active {
+  background-color: #FFC700;
+  margin-right: 0;
+}
+
+.ChatPage .ChatView {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  background-color: #FFC700;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-animation: slideLeft .5s;
+          animation: slideLeft .5s;
+}
+
+@media (max-width: 950px) {
+  .ChatPage .ChatView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 5;
+    -webkit-animation: slideUp .5s;
+            animation: slideUp .5s;
+  }
+}
+
+.ChatPage .ChatView .chatBar {
+  width: 100%;
+  background-color: white;
+  padding: 5px 10px;
+  -webkit-box-shadow: #0000005c 0 0 8px 0;
+          box-shadow: #0000005c 0 0 8px 0;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ChatPage .ChatView .chatBar img {
+  padding: 10px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.ChatPage .ChatView .chatBar img:hover {
+  background-color: #f5f5f5;
+}
+
+.ChatPage .ChatView .chatBar p {
+  margin-left: 20px;
+}
+
+.ChatPage .ChatView .messages {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 150px;
+  position: relative;
+  height: 100vh;
+  overflow: scroll;
+}
+
+@media (max-width: 950px) {
+  .ChatPage .ChatView .messages {
+    padding: 20px;
+    padding-bottom: 150px;
+  }
+}
+
+.ChatPage .ChatView .messages .Message {
+  margin: 2px;
+  min-width: 100px;
+  max-width: 70vw;
+  font-weight: 400;
+  word-break: break-word;
+  -webkit-animation: expand .5s;
+          animation: expand .5s;
+}
+
+.ChatPage .ChatView .messages .Message .from {
+  padding: 5px 10px;
+  font-size: 10px;
+  color: #272727;
+  letter-spacing: 2px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 10px 10px 0 0;
+}
+
+.ChatPage .ChatView .messages .Message .content {
+  padding: 10px;
+}
+
+.ChatPage .ChatView .messages .Message.sent {
+  background-color: white;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border-radius: 10px 10px 0 10px;
+}
+
+.ChatPage .ChatView .messages .Message.sent .from {
+  text-align: right;
+}
+
+.ChatPage .ChatView .messages .Message.recieved {
+  background-color: #fffcf0;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  border-radius: 10px 10px 10px 0;
+}
+
+.ChatPage .ChatView .SendMessage {
+  position: fixed;
+  bottom: 0;
+  width: 75vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+}
+
+@media (max-width: 950px) {
+  .ChatPage .ChatView .SendMessage {
+    width: 100%;
+  }
+}
+
+.ChatPage .ChatView .SendMessage form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  -webkit-box-shadow: #0000005c 0 0 8px 0;
+          box-shadow: #0000005c 0 0 8px 0;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.ChatPage .ChatView .SendMessage form .input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+}
+
+.ChatPage .ChatView .SendMessage form .input input, .ChatPage .ChatView .SendMessage form .input textarea, .ChatPage .ChatView .SendMessage form .input span {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 20px;
+}
+
+.ChatPage .ChatView .SendMessage form .input input:focus, .ChatPage .ChatView .SendMessage form .input textarea:focus, .ChatPage .ChatView .SendMessage form .input span:focus {
+  outline: none;
+}
+
+.ChatPage .ChatView .SendMessage form button {
+  background-color: white;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.ChatPage .ChatView .SendMessage form button:focus {
+  outline: none;
+}
+
+.ChatPage .ChatView .SendMessage form button img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.ChatPage .ChatView .SendMessage form button img:hover {
+  opacity: .7;
+}
+/*# sourceMappingURL=App.css.map */
