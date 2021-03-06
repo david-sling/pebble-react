@@ -126,6 +126,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -142,11 +146,21 @@
 
 .FormPage .left .type {
   max-width: 500px;
-  margin: 50px;
+  margin: 50px 50px 0 50px;
 }
 
 .FormPage .left .type img {
   width: 100%;
+}
+
+.FormPage .left button {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  margin-bottom: 30px;
+  border-radius: 999px;
 }
 
 .FormPage .right {
@@ -741,7 +755,7 @@
 .ChatPage .ChatView .messages .Message {
   margin: 2px;
   min-width: 100px;
-  max-width: 70vw;
+  max-width: 70%;
   font-weight: 400;
   word-break: break-word;
   -webkit-animation: expand .5s;
