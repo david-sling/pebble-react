@@ -31,7 +31,7 @@ export default function FormPage(props) {
                 <div className="type">
                     <img src={Type} alt="pebble-type"/>
                 </div>
-                <a href="/pebble-v1-0-1.apk"><button>Download APK for android</button></a>
+                <a href="/pebble.apk"><button>Download APK for android</button></a>
             </div>
             <div className="right">
                 <div className="form">
